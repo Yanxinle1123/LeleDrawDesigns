@@ -29,6 +29,9 @@ class LineChart:
             self._linewidth = 3
         if self._labelsize is None:
             self._labelsize = 10
+        if self._input_values is None:
+            self._input_values = [0, 1, 2, 3, 4]
+        self.draw()
 
     def draw(self):
         if self._style == 'straight':
@@ -83,3 +86,11 @@ class LineChart:
             ax.tick_params(labelsize=self._labelsize)
 
             plt.show()
+
+    def obtain_all_skin(self):
+        print(['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic',
+               'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-v0_8',
+               'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette',
+               'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook',
+               'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk',
+               'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10'])
