@@ -1,3 +1,21 @@
+from die import Die
+
+die = Die()
+
+list_results = []
+for roll_num in range(1000):
+    result = die.roll()
+    list_results.append(result)
+
+list_frequencies = []
+poss_results = range(1, die.num_sides + 1)
+for value in poss_results:
+    frequency = list_results.count(value)
+    list_frequencies.append(frequency)
+
+print(list_frequencies)
+
+
 class Histogram:
     def __init__(self, input_values=None, frequencies=None, color=None, edgecolor=None, title=None, title_fontsize=None,
                  xlabel=None, xlabel_fontsize=None, ylabel=None, ylabel_fontsize=None):
@@ -13,20 +31,10 @@ class Histogram:
         self._ylabel_fontsize = ylabel_fontsize
 
         if self._input_values is None:
-            return
+            self._input_values = poss_results
         if self._frequencies is None:
-            return
+            self._frequencies = list_frequencies
         if self._color is None:
-            return
+            self._color = 'blue'
         if self._edgecolor is None:
-            return
-        if self._title is None:
-            return
-        if self._title_fontsize is None:
-            return
-        if self._ylabel is None:
-            return
-        if self._ylabel_fontsize is None:
-            return
-        if self._title_fontsize is None:
-            return
+            self._edgecolor = 'black'
