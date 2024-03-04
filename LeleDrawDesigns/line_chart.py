@@ -3,6 +3,15 @@ import numpy as np
 from scipy.interpolate import CubicSpline
 
 
+def obtain_all_skin():
+    print(['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic',
+           'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-v0_8',
+           'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette',
+           'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook',
+           'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk',
+           'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10'])
+
+
 class LineChart:
     def __init__(self, squares=None, input_values=None, skin=None, style=None,
                  linewidth=None, labelsize=None, set_title=None, set_title_fontsize=None, set_xlabel=None,
@@ -21,6 +30,7 @@ class LineChart:
         self._style = style
         self._drop_color = drop_color
         self._line_color = line_color
+
         if self._squares is None:
             self._squares = [1, 4, 9, 16, 25]
         if self._skin is None:
@@ -35,6 +45,7 @@ class LineChart:
             self._input_values = [0, 1, 2, 3, 4]
         if self._drop_color is None:
             self._drop_color = 'red'
+
         self.draw()
 
     def draw(self):
@@ -43,8 +54,6 @@ class LineChart:
         line_color = self._line_color
         drop_color = self._drop_color
         if self._style == 'straight':
-            # print(f"input_values:{input_values}")
-            # print(f"squares:{squares}")
 
             plt.style.use(self._skin)
 
@@ -92,11 +101,3 @@ class LineChart:
             ax.tick_params(labelsize=self._labelsize)
 
             plt.show()
-
-    def obtain_all_skin(self):
-        print(['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic',
-               'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-v0_8',
-               'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette',
-               'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook',
-               'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk',
-               'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10'])
