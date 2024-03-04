@@ -14,18 +14,19 @@ def obtain_all_skin():
 
 class LineChart:
     def __init__(self, squares=None, input_values=None, skin=None, style=None,
-                 linewidth=None, labelsize=None, set_title=None, set_title_fontsize=None, set_xlabel=None,
-                 set_xlabel_fontsize=None, set_ylabel=None, set_ylabel_fontsize=None, drop_color=None, line_color=None):
-        self._linewidth = linewidth
-        self._labelsize = labelsize
+                 line_width=None, label_size=None, set_title=None, set_title_fontsize=None,
+                 set_x_label=None, set_x_label_fontsize=None, set_y_label=None,
+                 set_y_label_fontsize=None, drop_color=None, line_color=None):
+        self._line_width = line_width
+        self._label_size = label_size
         self._squares = squares
         self._input_values = input_values
         self._set_title = set_title
         self._set_title_fontsize = set_title_fontsize
-        self._set_xlabel = set_xlabel
-        self._set_xlabel_fontsize = set_xlabel_fontsize
-        self._set_ylabel = set_ylabel
-        self._set_ylabel_fontsize = set_ylabel_fontsize
+        self._set_x_label = set_x_label
+        self._set_x_label_fontsize = set_x_label_fontsize
+        self._set_y_label = set_y_label
+        self._set_y_label_fontsize = set_y_label_fontsize
         self._skin = skin
         self._style = style
         self._drop_color = drop_color
@@ -37,10 +38,10 @@ class LineChart:
             self._skin = 'seaborn-v0_8'
         if self._style is None:
             self._style = 'straight'
-        if self._linewidth is None:
-            self._linewidth = 3
-        if self._labelsize is None:
-            self._labelsize = 10
+        if self._line_width is None:
+            self._line_width = 3
+        if self._label_size is None:
+            self._label_size = 10
         if self._input_values is None:
             self._input_values = [0, 1, 2, 3, 4]
         if self._drop_color is None:
@@ -59,18 +60,18 @@ class LineChart:
 
             _, ax = plt.subplots()
             if input_values is None:
-                ax.plot(squares, linewidth=self._linewidth, color=line_color)
+                ax.plot(squares, linewidth=self._line_width, color=line_color)
             else:
-                ax.plot(input_values, squares, linewidth=self._linewidth, color=line_color)
+                ax.plot(input_values, squares, linewidth=self._line_width, color=line_color)
 
             # 绘制散点图
             ax.scatter(input_values, squares, color=drop_color, marker='o', zorder=3)
 
             ax.set_title(self._set_title, fontsize=self._set_title_fontsize)
-            ax.set_xlabel(self._set_xlabel, fontsize=self._set_xlabel_fontsize)
-            ax.set_ylabel(self._set_ylabel, fontsize=self._set_ylabel_fontsize)
+            ax.set_xlabel(self._set_x_label, fontsize=self._set_x_label_fontsize)
+            ax.set_ylabel(self._set_y_label, fontsize=self._set_y_label_fontsize)
 
-            ax.tick_params(labelsize=self._labelsize)
+            ax.tick_params(labelsize=self._label_size)
 
             plt.show()
         elif self._style == 'curved':
@@ -87,17 +88,17 @@ class LineChart:
             _, ax = plt.subplots()
 
             # 绘制折线图
-            ax.plot(x, y, linewidth=self._linewidth, color=line_color)
+            ax.plot(x, y, linewidth=self._line_width, color=line_color)
 
             # 绘制散点图
             ax.scatter(input_values, squares, color=drop_color, marker='o', zorder=3)
 
             # 设置图题并给坐标轴加上标签
             ax.set_title(self._set_title, fontsize=self._set_title_fontsize)
-            ax.set_xlabel(self._set_xlabel, fontsize=self._set_xlabel_fontsize)
-            ax.set_ylabel(self._set_ylabel, fontsize=self._set_ylabel_fontsize)
+            ax.set_xlabel(self._set_x_label, fontsize=self._set_x_label_fontsize)
+            ax.set_ylabel(self._set_y_label, fontsize=self._set_y_label_fontsize)
 
             # 设置刻度标记的样式
-            ax.tick_params(labelsize=self._labelsize)
+            ax.tick_params(labelsize=self._label_size)
 
             plt.show()
