@@ -1,21 +1,8 @@
 import matplotlib.pyplot as plt
 
-from die import Die
+from LeleDrawDesigns.dice_analysis import dice_analysis
 
-die = Die()
-
-list_results = []
-for roll_num in range(1000):
-    result = die.roll()
-    list_results.append(result)
-
-list_frequencies = []
-poss_results = range(1, die.num_sides + 1)
-for value in poss_results:
-    frequency = list_results.count(value)
-    list_frequencies.append(frequency)
-
-print(list_frequencies)
+poss_results, list_frequencies = dice_analysis()
 
 
 class Histogram:
