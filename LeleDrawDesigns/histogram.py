@@ -7,10 +7,9 @@ poss_results, list_frequencies = dice_analysis()
 
 class Histogram:
     def __init__(self, input_values=None, frequencies=None, label_size=None, figsize=None, skin=None, color=None,
-                 edgecolor=None,
-                 title=None, title_fontsize=None, x_label=None, x_label_fontsize=None, y_label=None,
-                 y_label_fontsize=None, x_ticks=None, x_ticks_fontsize=None, y_ticks=None,
-                 y_ticks_fontsize=None):
+                 edgecolor=None, title=None, title_fontsize=None, x_label=None, x_label_fontsize=None, y_label=None,
+                 y_label_fontsize=None, x_ticks=None, x_ticks_fontsize=None, y_ticks=None, y_ticks_fontsize=None,
+                 save_name=None):
         self._input_values = input_values
         self._frequencies = frequencies
         self._label_size = label_size
@@ -28,6 +27,7 @@ class Histogram:
         self._x_ticks_fontsize = x_ticks_fontsize
         self._y_ticks = y_ticks
         self._y_ticks_fontsize = y_ticks_fontsize
+        self._save_name = save_name
 
         if self._input_values is None:
             self._input_values = poss_results
@@ -64,5 +64,6 @@ class Histogram:
             plt.xticks(self._input_values, self._y_ticks)
             plt.tick_params(axis='y', labelsize=self._y_ticks_fontsize)
             plt.tick_params(labelsize=self._label_size)
-
+        if self._save_name is not None:
+            plt.savefig(self._save_name)
         plt.show()
