@@ -13,16 +13,18 @@ def obtain_all_skin():
 
 
 class LineChart:
-    def __init__(self, squares=None, input_values=None, x_ticks=None, x_ticks_fontsize=None, skin=None, style=None,
-                 line_width=None, label_size=None, set_title=None, set_title_fontsize=None,
-                 set_x_label=None, set_x_label_fontsize=None, set_y_label=None, set_y_label_fontsize=None,
-                 drop_color=None, line_color=None, figsize=None):
+    def __init__(self, squares=None, input_values=None, x_ticks=None, x_ticks_fontsize=None, y_ticks=None,
+                 y_ticks_fontsize=None, skin=None, style=None, line_width=None, label_size=None, set_title=None,
+                 set_title_fontsize=None, set_x_label=None, set_x_label_fontsize=None, set_y_label=None,
+                 set_y_label_fontsize=None, drop_color=None, line_color=None, figsize=None):
         self._line_width = line_width
         self._label_size = label_size
         self._squares = squares
         self._input_values = input_values
         self._x_ticks = x_ticks
         self._x_ticks_fontsize = x_ticks_fontsize
+        self._y_ticks = y_ticks
+        self._y_ticks_fontsize = y_ticks_fontsize
         self._set_title = set_title
         self._set_title_fontsize = set_title_fontsize
         self._set_x_label = set_x_label
@@ -43,6 +45,8 @@ class LineChart:
             self._style = 'straight'
         if self._x_ticks_fontsize is None:
             self._x_ticks_fontsize = 14
+        if self._y_ticks_fontsize is None:
+            self._y_ticks_fontsize = 14
         if self._line_width is None:
             self._line_width = 3
         if self._label_size is None:
@@ -83,6 +87,9 @@ class LineChart:
             if self._x_ticks is not None:
                 plt.xticks(self._input_values, self._x_ticks)
                 plt.tick_params(axis='x', labelsize=self._x_ticks_fontsize)
+            if self._y_ticks is not None:
+                plt.xticks(self._input_values, self._y_ticks)
+                plt.tick_params(axis='y', labelsize=self._y_ticks_fontsize)
 
             plt.show()
         elif self._style == 'curved':
