@@ -13,15 +13,16 @@ def obtain_all_skin():
 
 
 class LineChart:
-    def __init__(self, squares=None, input_values=None, x_ticks=None, skin=None, style=None,
+    def __init__(self, squares=None, input_values=None, x_ticks=None, x_ticks_fontsize=None, skin=None, style=None,
                  line_width=None, label_size=None, set_title=None, set_title_fontsize=None,
-                 set_x_label=None, set_x_label_fontsize=None, set_y_label=None,
-                 set_y_label_fontsize=None, drop_color=None, line_color=None):
+                 set_x_label=None, set_x_label_fontsize=None, set_y_label=None, set_y_label_fontsize=None,
+                 drop_color=None, line_color=None, figsize=None):
         self._line_width = line_width
         self._label_size = label_size
         self._squares = squares
         self._input_values = input_values
         self._x_ticks = x_ticks
+        self._x_ticks_fontsize = x_ticks_fontsize
         self._set_title = set_title
         self._set_title_fontsize = set_title_fontsize
         self._set_x_label = set_x_label
@@ -32,6 +33,7 @@ class LineChart:
         self._style = style
         self._drop_color = drop_color
         self._line_color = line_color
+        self._figsize = figsize
 
         if self._squares is None:
             self._squares = [1, 4, 9, 16, 25]
@@ -39,6 +41,8 @@ class LineChart:
             self._skin = 'seaborn-v0_8'
         if self._style is None:
             self._style = 'straight'
+        if self._x_ticks_fontsize is None:
+            self._x_ticks_fontsize = 14
         if self._line_width is None:
             self._line_width = 3
         if self._label_size is None:
@@ -47,6 +51,8 @@ class LineChart:
             self._input_values = [0, 1, 2, 3, 4]
         if self._drop_color is None:
             self._drop_color = 'red'
+        if self._figsize is None:
+            self._figsize = (10, 6)
 
         self.draw()
 
@@ -59,7 +65,7 @@ class LineChart:
 
             plt.style.use(self._skin)
 
-            _, ax = plt.subplots()
+            _, ax = plt.subplots(figsize=self._figsize)
             if input_values is None:
                 ax.plot(squares, linewidth=self._line_width, color=line_color)
             else:
@@ -76,6 +82,7 @@ class LineChart:
 
             if self._x_ticks is not None:
                 plt.xticks(self._input_values, self._x_ticks)
+                plt.tick_params(axis='x', labelsize=self._x_ticks_fontsize)
 
             plt.show()
         elif self._style == 'curved':
@@ -89,7 +96,7 @@ class LineChart:
             # 设置图的样式
             plt.style.use(self._skin)
 
-            _, ax = plt.subplots()
+            _, ax = plt.subplots(figsize=self._figsize)
 
             # 绘制折线图
             ax.plot(x, y, linewidth=self._line_width, color=line_color)
@@ -107,5 +114,6 @@ class LineChart:
 
             if self._x_ticks is not None:
                 plt.xticks(self._input_values, self._x_ticks)
+                plt.tick_params(axis='x', labelsize=self._x_ticks_fontsize)
 
             plt.show()
