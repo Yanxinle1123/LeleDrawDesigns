@@ -15,16 +15,16 @@ x_labels = ["one", "two", "three", "four", "five", "six"]
 
 histogram = Histogram(poss_results, frequencies, x_ticks=x_labels, skin='Solarize_Light2', title=title,
                       title_fontsize=20, x_label=xlabel, x_label_fontsize=20, y_label=ylabel, y_label_fontsize=20,
-                      color='green', edgecolor='black', figsize=(15, 10))
+                      color='green', edgecolor='black', figsize=(15, 10), x_ticks_fontsize=20)
 
 straight_line_chart = LineChart(input_values=input_values, squares=frequencies, x_ticks=x_labels, style='straight',
                                 line_color='green', skin='Solarize_Light2', set_title=title, set_title_fontsize=20,
                                 set_x_label=xlabel, set_x_label_fontsize=20, set_y_label=ylabel,
-                                set_y_label_fontsize=20, line_width=3, figsize=(15, 10))
+                                set_y_label_fontsize=20, line_width=3, figsize=(15, 10), x_ticks_fontsize=20)
 
 curved_line_chart = LineChart(input_values=input_values, squares=frequencies, x_ticks=x_labels, style='curved',
                               line_color='green', skin='Solarize_Light2', set_title=title, set_title_fontsize=20,
                               set_x_label=xlabel, set_x_label_fontsize=20, set_y_label=ylabel, set_y_label_fontsize=20,
-                              line_width=3, figsize=(15, 10))
+                              line_width=3, figsize=(15, 10), x_ticks_fontsize=20)
 
 obtain_all_skin()
