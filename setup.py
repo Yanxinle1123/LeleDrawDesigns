@@ -11,7 +11,7 @@ setup(
     ],
     author="YanXinle",
     author_email="1020121123@qq.com",
-    description="根据信息绘制折线图, 柱状图",
+    description="根据信息绘制折线图, 直方图",
 
     url="https://github.com/Yanxinle1123/LeleDrawDesigns",
 )

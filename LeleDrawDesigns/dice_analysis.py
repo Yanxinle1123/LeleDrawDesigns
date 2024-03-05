@@ -9,10 +9,10 @@ def dice_analysis(num_sides=6, dice_count=1000):
         result = die.roll()
         list_results.append(result)
 
-    list_frequencies = []
+    frequencies = []
     poss_results = range(1, die.num_sides + 1)
     for value in poss_results:
         frequency = list_results.count(value)
-        list_frequencies.append(frequency)
+        frequencies.append(frequency)
 
-    return poss_results, list_frequencies
+    return poss_results, frequencies
