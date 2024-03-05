@@ -13,7 +13,7 @@ def obtain_all_skin():
 
 
 class LineChart:
-    def __init__(self, squares=None, input_values=None, skin=None, style=None,
+    def __init__(self, squares=None, input_values=None, x_ticks=None, skin=None, style=None,
                  line_width=None, label_size=None, set_title=None, set_title_fontsize=None,
                  set_x_label=None, set_x_label_fontsize=None, set_y_label=None,
                  set_y_label_fontsize=None, drop_color=None, line_color=None):
@@ -21,6 +21,7 @@ class LineChart:
         self._label_size = label_size
         self._squares = squares
         self._input_values = input_values
+        self._x_ticks = x_ticks
         self._set_title = set_title
         self._set_title_fontsize = set_title_fontsize
         self._set_x_label = set_x_label
@@ -73,6 +74,9 @@ class LineChart:
 
             ax.tick_params(labelsize=self._label_size)
 
+            if self._x_ticks is not None:
+                plt.xticks(self._input_values, self._x_ticks)
+
             plt.show()
         elif self._style == 'curved':
             # 三次样条插值
@@ -100,5 +104,8 @@ class LineChart:
 
             # 设置刻度标记的样式
             ax.tick_params(labelsize=self._label_size)
+
+            if self._x_ticks is not None:
+                plt.xticks(self._input_values, self._x_ticks)
 
             plt.show()
