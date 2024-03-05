@@ -6,12 +6,14 @@ poss_results, list_frequencies = dice_analysis()
 
 
 class Histogram:
-    def __init__(self, input_values=None, frequencies=None, figsize=None, skin=None, color=None, edgecolor=None,
+    def __init__(self, input_values=None, frequencies=None, label_size=None, figsize=None, skin=None, color=None,
+                 edgecolor=None,
                  title=None, title_fontsize=None, x_label=None, x_label_fontsize=None, y_label=None,
                  y_label_fontsize=None, x_ticks=None, x_ticks_fontsize=None, y_ticks=None,
                  y_ticks_fontsize=None):
         self._input_values = input_values
         self._frequencies = frequencies
+        self._label_size = label_size
         self._skin = skin
         self._color = color
         self._edgecolor = edgecolor
@@ -43,6 +45,8 @@ class Histogram:
             self._x_ticks_fontsize = 14
         if self._y_ticks_fontsize is None:
             self._y_ticks_fontsize = 14
+        if self._label_size is None:
+            self._label_size = 14
 
         self.draw()
 
@@ -59,5 +63,6 @@ class Histogram:
         if self._y_ticks is not None:
             plt.xticks(self._input_values, self._y_ticks)
             plt.tick_params(axis='y', labelsize=self._y_ticks_fontsize)
+            plt.tick_params(labelsize=self._label_size)
 
         plt.show()
