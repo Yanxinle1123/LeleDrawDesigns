@@ -31,6 +31,6 @@ straight_line_chart = LineChart(input_values=input_values, squares=frequencies, 
 curved_line_chart = LineChart(input_values=input_values, squares=frequencies, x_ticks=x_labels, style='curved',
                               line_color='green', skin='Solarize_Light2', set_title=title, set_title_fontsize=20,
                               set_x_label=xlabel, set_x_label_fontsize=20, set_y_label=ylabel, set_y_label_fontsize=20,
-                              line_width=3, figsize=(7, 10), x_ticks_fontsize=20)
+                              line_width=3, figsize=(10, 7), x_ticks_fontsize=20)
 
 obtain_all_skin()
