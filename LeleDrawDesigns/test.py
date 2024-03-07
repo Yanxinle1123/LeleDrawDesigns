@@ -1,6 +1,7 @@
 from LeleDrawDesigns.dice_analysis import dice_analysis
 from LeleDrawDesigns.histogram import Histogram
-from LeleDrawDesigns.line_chart import LineChart, obtain_all_skin
+from LeleDrawDesigns.line_chart import LineChart
+from LeleDrawDesigns.obtain_all_skin import obtain_all_skin
 
 """
 演示如何使用LeleDrawDesigns库

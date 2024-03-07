@@ -20,3 +20,5 @@ F
 LeleDrawDesigns/die.py,c/b/cbe96b766f53b199d1f29ee295ed21c1e75f38a6
 P
  LeleDrawDesigns/dice_analysis.py,2/7/27becc6fa58ee6abc502b45913dd67c29427f8c5
+R
+"LeleDrawDesigns/obtain_all_skin.py,6/1/61070d015517649e908cc8de3d90c58285215389
